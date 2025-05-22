@@ -27,11 +27,6 @@ El sistema consta de dos servicios principales:
 │       ├── index.html
 │       ├── key.html
 │       └── validation.html
-├── shared-folder/
-│   ├── bank/
-│   │   └── shared/
-│   └── customer/
-│       └── shared/
 └── docker-compose.yml
 ```
 
