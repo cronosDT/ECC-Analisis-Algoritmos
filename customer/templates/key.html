@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clave Generada</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .key-box {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .timer {
+            font-size: 1.2em;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+        .expired {
+            color: #a00;
+            font-weight: bold;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Clave generada para {{ nombre }}</h2>
+    <div class="key-box" id="clave">{{ decrypted_key }}</div>
+    <div class="timer" id="timer">Tiempo restante: 30 segundos</div>
+
+    <form action="/validate-key" method="post">
+        <input type="hidden" name="nombre" value="{{ nombre }}">
+        <input type="text" name="key" placeholder="Ingrese su clave para validar" required>
+        <br>
+        <button type="submit">Validar Clave</button>
+    </form>
+</div>
+
+<script>
+    let seconds = 30;
+    const timerElement = document.getElementById('timer');
+    const claveElement = document.getElementById('clave');
+
+    const countdown = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+            timerElement.textContent = `Tiempo restante: ${seconds} segundos`;
+        } else {
+            clearInterval(countdown);
+            timerElement.innerHTML = '<span class="expired">¡Tiempo expirado!</span>';
+            claveElement.textContent = 'Clave expirada';
+            claveElement.style.color = '#a00';
+        }
+    }, 1000);
+</script>
+</body>
+</html>
