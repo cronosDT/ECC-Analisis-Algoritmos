@@ -150,7 +150,7 @@ Los contenedores se comunican a través de una red Docker dedicada (`app_network
 - Añadir registros de auditoría detallados
 
 ## Diagrama de arquitectura
-![Arquitectura del sistema](arquitectura.png)
+![Arquitectura del sistema](diagrams/arquitectura.png)
 
 ## Flujo de trabajo
-![Flujo de trabajo](flujo.png)
+![Flujo de trabajo](diagrams/flujo.png)
