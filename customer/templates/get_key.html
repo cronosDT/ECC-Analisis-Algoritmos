@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Obtener Clave</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            padding: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .timer {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Ingrese su nombre para generar una clave</h2>
+    <form method="post">
+        <input type="text" name="nombre" placeholder="Nombre del usuario" required>
+        <button type="submit">Generar Clave</button>
+    </form>
+    <a href="/"><button style="background-color: #007BFF;">Volver</button></a>
+</div>
+
+<script>
+    let seconds = 30;
+    const timerElement = document.getElementById('timer');
+    const countdown = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+            timerElement.textContent = `Tiempo restante: ${seconds} segundos`;
+        } else {
+            clearInterval(countdown);
+            timerElement.textContent = "Tiempo expirado (la clave anterior ya no es válida)";
+        }
+    }, 1000);
+</script>
+</body>
+</html>
