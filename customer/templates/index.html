@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal del Cliente</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            padding: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .timer {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Portal del Cliente</h1>
+    <a href="/get-key"><button>Obtener Clave del Banco</button></a>
+    <form action="/validate-key" method="post">
+        <input type="text" name="nombre" placeholder="Nombre de usuario" required>
+        <input type="text" name="key" placeholder="Ingrese clave a validar" required>
+        <button type="submit">Validar Clave</button>
+    </form>
+</div>
+</body>
+</html>
