@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado de Validación</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .result {
+            font-size: 1.4em;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .result.valid {
+            color: green;
+        }
+        .result.invalid {
+            color: red;
+        }
+        .info {
+            margin-top: 15px;
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .timer {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Resultado de Validación</h2>
+    <p><strong>Usuario:</strong> {{ nombre }}</p>
+    <p><strong>Clave usada:</strong> {{ key_attempt }}</p>
+    <p class="result {% if validation_result == 'Clave válida' %}valid{% else %}invalid{% endif %}">
+        {{ validation_result }}
+    </p>
+    <a href="/"><button>Volver</button></a>
+</div>
+</body>
+</html>
