@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  customer:
+    build: customer/.
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./shared-folder/customer:/keys/
+      - ./shared-folder/bank/shared:/keys/bank
+      - ./customer/templates:/app/templates  # Para los templates HTML
+    networks:
+      - app_network
+
+  bank:
+    build: bank/.
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./shared-folder/bank:/keys
+      - ./shared-folder/customer/shared:/keys/customer
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
