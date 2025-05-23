@@ -39,10 +39,6 @@ Primero, clone el repositorio y cree la estructura de directorios necesaria:
 ```bash
 git clone <url-del-repositorio>
 cd <nombre-del-repositorio>
-
-# Crear directorios para compartir claves en caso tal que estos no se creen automáticamente
-mkdir -p shared-folder/bank/shared
-mkdir -p shared-folder/customer/shared
 ```
 
 ### 2. Construir y Desplegar los Contenedores
@@ -63,7 +59,16 @@ docker-compose ps
 
 Debería ver dos servicios en ejecución: `bank` y `customer`.
 
-### 4. Acceder a la Interfaz del Cliente
+### 4. volúmenes
+
+Crear directorios para compartir claves en caso tal que estos no se creen automáticamente:
+
+```bash
+mkdir -p shared-folder/bank/shared
+mkdir -p shared-folder/customer/shared
+```
+
+### 5. Acceder a la Interfaz del Cliente
 
 Abra un navegador web y acceda a:
 
